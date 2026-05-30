@@ -11,7 +11,7 @@ Based on your active Railway service variables, your cloud database coordinates 
 *   **Username**: `root`
 *   **Public Connection String (`MYSQL_URL`)**:
     ```text
-    mysql://root:AJgOlhOngRRUqmajBWTTCggrXccjYReL@zephyr.proxy.rlwy.net:47269/railway
+    mysql://root:AJgOlhOngRRUqmajBWTTZGgrXccjYReL@zephyr.proxy.rlwy.net:47269/railway
     ```
 
 > [!NOTE]  
@@ -36,7 +36,7 @@ Render is excellent for hosting your Node.js Express API.
 5.  Click **"Advanced"** to add **Environment Variables**:
     | Key | Value | Description |
     | :--- | :--- | :--- |
-    | `MYSQL_URL` | `mysql://root:AJgOlhOngRRUqmajBWTTCggrXccjYReL@zephyr.proxy.rlwy.net:47269/railway` | Your live Railway database connection string |
+    | `MYSQL_URL` | `mysql://root:AJgOlhOngRRUqmajBWTTZGgrXccjYReL@zephyr.proxy.rlwy.net:47269/railway` | Your live Railway database connection string |
     | `JWT_SECRET` | `supersecretbloodbankjwttokenkey1234!` | Secure key to sign user login tokens |
     | `PORT` | `10000` | The port Render exposes for your app |
 6.  Click **"Create Web Service"**. Render will download, build, connect to Railway, seed the database, and spin up your backend API!
@@ -69,7 +69,7 @@ If you want to run your local laptop backend server but have it point to the liv
 
 ```env
 JWT_SECRET=supersecretbloodbankjwttokenkey1234!
-MYSQL_URL=mysql://root:AJgOlhOngRRUqmajBWTTCggrXccjYReL@zephyr.proxy.rlwy.net:47269/railway
+MYSQL_URL=mysql://root:AJgOlhOngRRUqmajBWTTZGgrXccjYReL@zephyr.proxy.rlwy.net:47269/railway
 ```
 
 Save and run `npm start` in your backend folder. The system will connect securely to Railway!
