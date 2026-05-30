@@ -23,6 +23,8 @@ router.post('/donors/donate', protect, authorize('admin'), donorController.creat
 router.get('/donors/history', protect, authorize('donor'), donorController.getDonationHistory);
 router.post('/donors/appointment', protect, authorize('donor'), donorController.bookAppointment);
 router.get('/donors/appointments', protect, donorController.getAppointments);
+router.post('/donors/eligibility', protect, authorize('donor'), donorController.saveEligibilityCheck);
+router.get('/donors/eligibility', protect, authorize('donor'), donorController.getEligibilityHistory);
 
 // --- HOSPITAL & REQUEST ROUTES ---
 router.get('/hospitals', protect, authorize('admin'), hospitalController.getHospitals);

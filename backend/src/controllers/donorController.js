@@ -310,3 +310,108 @@ exports.getAppointments = async (req, res) => {
     res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
 };
+
+// @desc    Save donor eligibility check
+// @route   POST /api/donors/eligibility
+// @access  Private (Donor only)
+exports.saveEligibilityCheck = async (req, res) => {
+  const { weight, age, isEligible, reason } = req.body;
+
+  try {
+    if (weight === undefined || age === undefined || isEligible === undefined) {
+      return res.status(400).json({ success: false, message: 'Weight, age, and eligibility status are required' });
+    }
+
+    const checkDate = new Date().toISOString().split('T')[0];
+
+    if (db.isMock()) {
+      const donors = db.mockDb.readTable('donors');
+      const donorIndex = donors.findIndex(d => d.user_id === req.user.id);
+      if (donorIndex === -1) {
+        return res.status(404).json({ success: false, message: 'Donor profile not found' });
+      }
+
+      const donor = donors[donorIndex];
+      const eligibilityChecks = db.mockDb.readTable('eligibility_checks') || [];
+      const id = db.mockDb.getNextId('eligibility_checks');
+
+      const newCheck = {
+        id,
+        donor_id: donor.id,
+        check_date: checkDate,
+        is_eligible: isEligible ? 1 : 0,
+        reason: reason || '',
+        weight_kg: parseFloat(weight),
+        age: parseInt(age)
+      };
+
+      eligibilityChecks.push(newCheck);
+      db.mockDb.writeTable('eligibility_checks', eligibilityChecks);
+
+      // Update donor eligibility
+      donor.is_eligible = isEligible ? 1 : 0;
+      donor.next_eligible_date = isEligible ? null : new Date(Date.now() + 56 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+      donors[donorIndex] = donor;
+      db.mockDb.writeTable('donors', donors);
+
+      return res.status(201).json({ success: true, message: 'Eligibility check logged successfully', data: newCheck });
+    } else {
+      const donorRows = await db.query('SELECT id FROM donors WHERE user_id = ?', [req.user.id]);
+      if (donorRows.length === 0) {
+        return res.status(404).json({ success: false, message: 'Donor profile not found' });
+      }
+      const donorId = donorRows[0].id;
+
+      await db.query(
+        'INSERT INTO eligibility_checks (donor_id, check_date, is_eligible, reason, weight_kg, age) VALUES (?, CURDATE(), ?, ?, ?, ?)',
+        [donorId, isEligible ? 1 : 0, reason || '', weight, age]
+      );
+
+      // Update donor eligibility
+      const nextEligibleDate = isEligible ? null : new Date(Date.now() + 56 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+      await db.query(
+        'UPDATE donors SET is_eligible = ?, next_eligible_date = ? WHERE id = ?',
+        [isEligible ? 1 : 0, nextEligibleDate, donorId]
+      );
+
+      return res.status(201).json({ success: true, message: 'Eligibility check logged successfully' });
+    }
+  } catch (error) {
+    console.error('Save Eligibility Check Error:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+};
+
+// @desc    Get donor eligibility checks history
+// @route   GET /api/donors/eligibility
+// @access  Private (Donor only)
+exports.getEligibilityHistory = async (req, res) => {
+  try {
+    if (db.isMock()) {
+      const donors = db.mockDb.readTable('donors');
+      const donor = donors.find(d => d.user_id === req.user.id);
+      if (!donor) {
+        return res.status(404).json({ success: false, message: 'Donor profile not found' });
+      }
+
+      const checks = db.mockDb.readTable('eligibility_checks') || [];
+      const results = checks.filter(c => c.donor_id === donor.id).sort((a, b) => b.id - a.id);
+      return res.status(200).json({ success: true, data: results });
+    } else {
+      const donorRows = await db.query('SELECT id FROM donors WHERE user_id = ?', [req.user.id]);
+      if (donorRows.length === 0) {
+        return res.status(404).json({ success: false, message: 'Donor profile not found' });
+      }
+      const donorId = donorRows[0].id;
+
+      const rows = await db.query(
+        'SELECT * FROM eligibility_checks WHERE donor_id = ? ORDER BY check_date DESC, id DESC',
+        [donorId]
+      );
+      return res.status(200).json({ success: true, data: rows });
+    }
+  } catch (error) {
+    console.error('Get Eligibility History Error:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+};
