@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "blood_group": "O+",
+    "donation_id": 1,
+    "collected_date": "2026-03-10",
+    "expiry_date": "2026-04-21",
+    "status": "expired",
+    "created_at": "2026-05-30T13:57:12.351Z"
+  },
+  {
+    "id": 2,
+    "blood_group": "A+",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 3,
+    "blood_group": "A-",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 4,
+    "blood_group": "B+",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 5,
+    "blood_group": "B-",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 6,
+    "blood_group": "AB+",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 7,
+    "blood_group": "AB-",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 8,
+    "blood_group": "O+",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  },
+  {
+    "id": 9,
+    "blood_group": "O-",
+    "donation_id": null,
+    "collected_date": "2026-05-28",
+    "expiry_date": "2026-07-09",
+    "status": "available",
+    "created_at": "2026-05-30T13:57:12.352Z"
+  }
+]

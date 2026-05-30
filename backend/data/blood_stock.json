@@ -1,0 +1,50 @@
+[
+  {
+    "blood_group": "A+",
+    "total_units": 1,
+    "min_required_units": 10,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "A-",
+    "total_units": 1,
+    "min_required_units": 8,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "B+",
+    "total_units": 1,
+    "min_required_units": 10,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "B-",
+    "total_units": 1,
+    "min_required_units": 8,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "AB+",
+    "total_units": 1,
+    "min_required_units": 8,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "AB-",
+    "total_units": 1,
+    "min_required_units": 5,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "O+",
+    "total_units": 1,
+    "min_required_units": 12,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  },
+  {
+    "blood_group": "O-",
+    "total_units": 1,
+    "min_required_units": 10,
+    "updated_at": "2026-05-30T14:12:52.568Z"
+  }
+]

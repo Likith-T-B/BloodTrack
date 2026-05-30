@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "user_id": 2,
+    "blood_group": "O+",
+    "dob": "1992-06-15",
+    "gender": "male",
+    "weight": 78.5,
+    "last_donation_date": "2026-03-10",
+    "is_eligible": 1,
+    "next_eligible_date": "2026-05-05",
+    "medical_conditions": "None. Healthy blood count."
+  },
+  {
+    "id": 2,
+    "user_id": 4,
+    "blood_group": "A+",
+    "dob": "2006-08-26",
+    "gender": "male",
+    "weight": 75,
+    "last_donation_date": null,
+    "is_eligible": 1,
+    "next_eligible_date": null,
+    "medical_conditions": ""
+  }
+]

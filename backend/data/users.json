@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Chief Admin Officer",
+    "email": "admin@bloodbank.com",
+    "password": "$2a$10$14bSwL9dx78RIeI/djGs2eBww2mHN5xQt9LjYgAKsuzlBw4Jbevuy",
+    "role": "admin",
+    "phone": "+1 800-555-0199",
+    "city": "Chicago",
+    "address": "Red Cross Boulevard, HQ",
+    "created_at": "2026-05-30T13:57:12.347Z"
+  },
+  {
+    "id": 2,
+    "name": "John Doe (Donor)",
+    "email": "donor@bloodbank.com",
+    "password": "$2a$10$14bSwL9dx78RIeI/djGs2efqbIo.5urmSfF.VO6XVpsjoEIto/Lky",
+    "role": "donor",
+    "phone": "+1 312-555-0144",
+    "city": "Chicago",
+    "address": "455 Michigan Ave",
+    "created_at": "2026-05-30T13:57:12.347Z"
+  },
+  {
+    "id": 3,
+    "name": "St. Mary General Hospital",
+    "email": "hospital@bloodbank.com",
+    "password": "$2a$10$14bSwL9dx78RIeI/djGs2eJDn7urQ.zDZ32lMFk.5F5wPqEe959HO",
+    "role": "hospital",
+    "phone": "+1 312-555-0122",
+    "city": "Chicago",
+    "address": "800 W Harrison St",
+    "created_at": "2026-05-30T13:57:12.347Z"
+  },
+  {
+    "id": 4,
+    "name": "pravachan",
+    "email": "pravachan47@gail.com",
+    "password": "$2a$10$SW/aAOu4QwKzhe.uZUMbyuGThJPmQC.j7qTDWEKgzlMeAqx8jS1gO",
+    "role": "donor",
+    "phone": "6365254878",
+    "city": "mysuru",
+    "address": "vvce",
+    "created_at": "2026-05-30T14:38:12.670Z"
+  }
+]

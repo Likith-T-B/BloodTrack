@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "user_id": 3,
+    "license_number": "HOSP-IL-9882",
+    "emergency_contact": "+1 312-555-0911",
+    "hospital_type": "private"
+  }
+]
