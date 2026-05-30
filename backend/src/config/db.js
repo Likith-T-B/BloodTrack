@@ -24,7 +24,7 @@ const checkAndInitTables = async (dbName) => {
       
       const fs = require('fs');
       const path = require('path');
-      const sqlDir = path.join(__dirname, '..', '..', '..', 'database');
+      const sqlDir = path.join(__dirname, 'sql');
       
       // 1. Run Schema
       const schemaSql = fs.readFileSync(path.join(sqlDir, 'schema.sql'), 'utf8');
